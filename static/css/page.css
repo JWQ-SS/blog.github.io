@@ -9,7 +9,7 @@
 }
 .list-post li {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   padding: 8px 0;
 }
 .list-post li .date {
