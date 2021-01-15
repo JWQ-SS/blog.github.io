@@ -55,6 +55,12 @@ extBaidu: false
 # 数学公式支持，比较影响加载速度,不需要请设置为false
 extMath: false
 
+# 首页分页
+index_generator:
+  path: ''
+  per_page: 5
+  order_by: -date
+
 # 友情链接
 #links:
 #  - title: 文科中的技术宅
