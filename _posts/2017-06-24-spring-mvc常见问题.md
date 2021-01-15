@@ -26,7 +26,7 @@ serlvet的匹配规则：
 
 由此可见getRequestDispatcher并不是带上数据到文件，而是再次匹配，然后匹配到文件，中间有一个再次匹配的过程，匹配取决于你的url-pattern
 
-```
+```jsp
 //p:prefix="/" p:suffix=".jsp"
 @RequestMapping("/1.jsp")
 public String test1() {
@@ -36,7 +36,7 @@ public String test1() {
 
 ## 解决@ResponseBody乱码
 
-```
+```html
 <mvc:annotation-driven>
     <mvc:message-converters register-defaults="true">
         <bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -51,7 +51,7 @@ public String test1() {
 
 post提交表单乱码，在web.xml添加如下配置
 
-```
+```html
 <!-- 中文乱码过滤器 -->
 <filter>
     <filter-name>characterEncoding</filter-name>
@@ -73,7 +73,7 @@ post提交表单乱码，在web.xml添加如下配置
 
 由于在web.xml中做了如下配置,表示对所有请求进行拦截
 
-```
+```html
 <servlet-mapping>
     <servlet-name>DispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
@@ -82,7 +82,7 @@ post提交表单乱码，在web.xml添加如下配置
 
 可以使用静态资源过滤器来解决
 
-```
+```html
 <!-- 过滤静态资源文件 -->
 <mvc:resources location="/static/" mapping="/static/**" />
 ```
@@ -91,7 +91,7 @@ post提交表单乱码，在web.xml添加如下配置
 
 有时候配置了静态资源过滤器后，所有的Controller都404了
 
-```
+```html
 把
 <context:annotation-config></context:annotation-config>
 换成
@@ -107,7 +107,7 @@ post提交表单乱码，在web.xml添加如下配置
 
 web.xml配置如下
 
-```
+```html
 <!-- 配置Spring容器 -->
 <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -139,7 +139,7 @@ web.xml配置如下
 
 1. 还是使用以前的单文件配置，所有的spring配置在一个文件里,web.xml只需要如下配置即可
 
-    ```
+    ```html
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -155,7 +155,7 @@ web.xml配置如下
 
     applicationContext.xml文件
 
-    ```
+    ```html
     <!-- 扫包，不用net.tmaize.crm.* -->
     <context:component-scan base-package="net.tmaize.crm">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
@@ -164,7 +164,7 @@ web.xml配置如下
 
     spring-mvc.xml文件
 
-    ```
+    ```html
     <!-- 自动扫包 ,Controller -->
     <context:component-scan base-package="net.tmaize.crm.controller" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
