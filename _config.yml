@@ -5,7 +5,7 @@ title: 柴郡猫 Blog
 description: 柴郡猫的个人博客
 keywords: 柴郡猫,学习,生活
 author: JWQ
-footerText: 'fork from tmaize'
+footerText: ''
 
 # 这些不要动
 permalink: /posts/:year/:month/:day/:title.html
