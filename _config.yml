@@ -56,10 +56,10 @@ extBaidu: false
 extMath: false
 
 # 首页分页
-index_generator:
-  path: ''
-  per_page: 5
-  order_by: -date
+#index_generator:
+#  path: ''
+#  per_page: 5
+#  order_by: -date
 
 # 友情链接
 #links:
